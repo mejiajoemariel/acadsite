@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Institutional File Naming Format</title>
+<style>
+    body{
+        font-family: Arial, sans-serif;
+        margin:0;
+        background:#f4f6f9;
+        color:#222;
+    }
+    header{
+        background:#800000;
+        color:white;
+        padding:20px;
+        text-align:center;
+    }
+    header h1{
+        margin:0;
+        font-size:22px;
+    }
+    header p{
+        margin:5px 0 0;
+        font-size:14px;
+    }
+    .container{
+        max-width:1100px;
+        margin:20px auto;
+        padding:20px;
+    }
+    .card{
+        background:white;
+        padding:20px;
+        margin-bottom:20px;
+        border-radius:10px;
+        box-shadow:0 2px 8px rgba(0,0,0,0.08);
+    }
+    .format{
+        background:#111;
+        color:#0f0;
+        padding:15px;
+        border-radius:8px;
+        font-family:monospace;
+        overflow-x:auto;
+    }
+    table{
+        width:100%;
+        border-collapse:collapse;
+        margin-top:10px;
+    }
+    th, td{
+        border:1px solid #ddd;
+        padding:10px;
+        text-align:left;
+    }
+    th{
+        background:#800000;
+        color:white;
+    }
+    .tag{
+        display:inline-block;
+        background:#eee;
+        padding:5px 10px;
+        border-radius:5px;
+        margin:3px 0;
+        font-size:13px;
+    }
+    .warning{
+        background:#fff3cd;
+        padding:10px;
+        border-left:5px solid #ffc107;
+        margin-top:10px;
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <h1>Institutional File Naming Format Guide</h1>
+    <p>Concepcion Holy Cross College, Inc.</p>
+</header>
+
+<div class="container">
+
+    <div class="card">
+        <h2>Standard File Name Format</h2>
+        <div class="format">
+DOC SN NO. - FACULTY ALIAS - SUBMISSION CODE - CODE DESCRIPTION (SHORTEN) - CYS - SEMAY
+        </div>
+        <p>Example:</p>
+        <div class="format">
+SCS1-A.BALBERAN-002-GEC101-UTS-1BSCS-A-1AY2026-2027
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Format Breakdown</h2>
+        <table>
+            <tr>
+                <th>Component</th>
+                <th>Description</th>
+                <th>Example</th>
+            </tr>
+            <tr>
+                <td>DOC SN NO.</td>
+                <td>Document Serial Number from Program Head</td>
+                <td>SCS1</td>
+            </tr>
+            <tr>
+                <td>FACULTY ALIAS</td>
+                <td>First initial + surname</td>
+                <td>A.BALBERAN</td>
+            </tr>
+            <tr>
+                <td>SUBMISSION CODE</td>
+                <td>Assigned document type code</td>
+                <td>002</td>
+            </tr>
+            <tr>
+                <td>CODE DESCRIPTION</td>
+                <td>Subject code + document type</td>
+                <td>GEC101-UTS</td>
+            </tr>
+            <tr>
+                <td>CYS</td>
+                <td>Course, Year, Section</td>
+                <td>1BSCS-A</td>
+            </tr>
+            <tr>
+                <td>SEMAY</td>
+                <td>Semester and Academic Year</td>
+                <td>1AY2026-2027</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="card">
+        <h2>Submission Codes</h2>
+        <span class="tag">001 - Syllabus</span><br>
+        <span class="tag">002 - Class Records</span><br>
+        <span class="tag">003 - Table of Specification</span><br>
+        <span class="tag">004 - Item Analysis</span><br>
+        <span class="tag">005 - Final Grade</span>
+    </div>
+
+    <div class="card">
+        <h2>Sample File Names</h2>
+        <div class="format">SCS1-A.BALBERAN-001-GEC101-SYLLABUS-1BSCS-A-1AY2026-2027</div>
+        <br>
+        <div class="format">SCS1-A.BALBERAN-002-GEC101-CR-1BSCS-A-1AY2026-2027</div>
+        <br>
+        <div class="format">SCS1-A.BALBERAN-003-GEC101-TOS-1BSCS-A-1AY2026-2027</div>
+        <br>
+        <div class="format">SCS1-A.BALBERAN-004-GEC101-IA-1BSCS-A-1AY2026-2027</div>
+        <br>
+        <div class="format">SCS1-A.BALBERAN-005-GEC101-FG-1BSCS-A-1AY2026-2027</div>
+    </div>
+
+    <div class="card warning">
+        <strong>Important Reminders:</strong>
+        <ul>
+            <li>Follow exact format and order</li>
+            <li>No extra spaces or special characters</li>
+            <li>Verify DOC SN before submission</li>
+            <li>Ensure correct semester and academic year</li>
+        </ul>
+    </div>
+
+</div>
+
+</body>
+</html>
