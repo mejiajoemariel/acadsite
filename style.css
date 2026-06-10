@@ -1,0 +1,149 @@
+.hero{
+    background:
+    linear-gradient(rgba(0,48,120,.92),
+    rgba(0,70,170,.92)),
+    url('school-building.jpg');
+
+    background-size:cover;
+    background-position:center;
+
+    padding:50px 20px 90px;
+    color:#fff;
+}
+
+.hero-content{
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    gap:30px;
+}
+
+.logo{
+    width:140px;
+    height:140px;
+    background:#fff;
+    border-radius:50%;
+    padding:8px;
+}
+
+.hero h1{
+    font-size:3rem;
+    font-weight:700;
+}
+
+.hero h2{
+    color:#F4C542;
+    margin-top:10px;
+}
+
+.dashboard{
+    margin-top:-45px;
+}
+
+.stat-card{
+    display:flex;
+    align-items:center;
+    gap:20px;
+    text-align:left;
+}
+
+.icon{
+    font-size:2.5rem;
+}
+
+.filter-panel{
+    max-width:1200px;
+    margin:auto;
+    padding:25px;
+    display:grid;
+    grid-template-columns:
+    1fr
+    250px
+    220px;
+    gap:15px;
+}
+
+.filter-panel input,
+.filter-panel select{
+    padding:15px;
+    border-radius:12px;
+    border:1px solid #ddd;
+}
+
+.print-btn{
+    border:none;
+    border-radius:12px;
+    background:#003B8E;
+    color:#fff;
+    cursor:pointer;
+}
+
+.month-buttons{
+    margin:0 auto 30px;
+    max-width:1200px;
+}
+
+.month-buttons button{
+    border-radius:50px;
+    padding:12px 28px;
+}
+
+.timeline{
+    max-width:1200px;
+    margin:auto;
+}
+
+footer{
+    margin-top:60px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:30px;
+    background:#003B8E;
+}
+
+.footer-logo{
+    width:60px;
+}
+
+.footer-left{
+    display:flex;
+    gap:15px;
+    align-items:center;
+}
+
+.footer-right{
+    text-align:right;
+}
+
+@media(max-width:768px){
+
+.hero-content{
+    flex-direction:column;
+    text-align:center;
+}
+
+.hero h1{
+    font-size:1.8rem;
+}
+
+.filter-panel{
+    grid-template-columns:1fr;
+}
+
+.dashboard{
+    grid-template-columns:1fr;
+}
+
+footer{
+    flex-direction:column;
+    gap:20px;
+    text-align:center;
+}
+
+.footer-right{
+    text-align:center;
+}
+
+}
