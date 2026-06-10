@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CHCCI Academic Calendar AY 2026-2027</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+--chcci-blue:#003B8E;
+--chcci-light:#0A5AC2;
+--chcci-gold:#F4C542;
+--bg:#F5F7FB;
+--text:#333;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:var(--bg);
+color:var(--text);
+}
+
+/* HERO */
+
+.hero{
+background:
+linear-gradient(
+135deg,
+#003B8E 0%,
+#005BD3 100%);
+color:white;
+padding:60px 20px;
+text-align:center;
+}
+
+.hero img{
+width:140px;
+height:140px;
+border-radius:50%;
+background:white;
+padding:8px;
+box-shadow:0 10px 30px rgba(0,0,0,.25);
+}
+
+.hero h1{
+margin-top:20px;
+font-size:2.5rem;
+}
+
+.hero h2{
+font-weight:400;
+margin-top:10px;
+}
+
+.hero p{
+opacity:.9;
+margin-top:10px;
+}
+
+/* DASHBOARD */
+
+.dashboard{
+max-width:1200px;
+margin:-40px auto 30px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+padding:0 20px;
+}
+
+.card{
+background:white;
+padding:25px;
+border-radius:18px;
+box-shadow:0 5px 20px rgba(0,0,0,.08);
+text-align:center;
+}
+
+.card h3{
+font-size:2rem;
+color:var(--chcci-blue);
+}
+
+/* CONTROLS */
+
+.controls{
+max-width:1200px;
+margin:auto;
+padding:20px;
+display:flex;
+gap:15px;
+flex-wrap:wrap;
+justify-content:center;
+}
+
+.controls input,
+.controls select{
+padding:12px;
+border:1px solid #ddd;
+border-radius:10px;
+min-width:250px;
+}
+
+/* BUTTONS */
+
+.month-buttons{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:10px;
+margin-bottom:25px;
+}
+
+.month-buttons button{
+background:white;
+border:none;
+padding:10px 20px;
+border-radius:50px;
+cursor:pointer;
+font-weight:600;
+box-shadow:0 3px 10px rgba(0,0,0,.1);
+}
+
+.month-buttons button:hover{
+background:var(--chcci-blue);
+color:white;
+}
+
+/* TIMELINE */
+
+.timeline{
+max-width:1100px;
+margin:auto;
+padding:20px;
+position:relative;
+}
+
+.timeline:before{
+content:'';
+position:absolute;
+left:25px;
+top:0;
+bottom:0;
+width:4px;
+background:var(--chcci-gold);
+}
+
+.event{
+position:relative;
+margin-left:60px;
+margin-bottom:20px;
+background:white;
+padding:20px;
+border-radius:15px;
+box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.event:before{
+content:'';
+position:absolute;
+left:-47px;
+top:25px;
+width:18px;
+height:18px;
+background:var(--chcci-blue);
+border:4px solid var(--chcci-gold);
+border-radius:50%;
+}
+
+.date{
+font-weight:700;
+color:var(--chcci-blue);
+}
+
+.title{
+margin-top:5px;
+font-size:1.05rem;
+}
+
+.badge{
+display:inline-block;
+margin-top:10px;
+padding:4px 10px;
+border-radius:30px;
+font-size:.75rem;
+font-weight:600;
+color:white;
+}
+
+/* COLORS */
+
+.exam{
+border-left:6px solid #E74C3C;
+}
+
+.exam .badge{
+background:#E74C3C;
+}
+
+.academic{
+border-left:6px solid #3498DB;
+}
+
+.academic .badge{
+background:#3498DB;
+}
+
+.religious{
+border-left:6px solid #27AE60;
+}
+
+.religious .badge{
+background:#27AE60;
+}
+
+.celebration{
+border-left:6px solid #F39C12;
+}
+
+.celebration .badge{
+background:#F39C12;
+}
+
+.awareness{
+border-left:6px solid #8E44AD;
+}
+
+.awareness .badge{
+background:#8E44AD;
+}
+
+.print{
+display:block;
+margin:20px auto;
+padding:12px 25px;
+background:var(--chcci-blue);
+color:white;
+border:none;
+border-radius:10px;
+cursor:pointer;
+}
+
+footer{
+margin-top:40px;
+background:var(--chcci-blue);
+color:white;
+text-align:center;
+padding:25px;
+}
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:1.8rem;
+}
+
+.timeline:before{
+left:15px;
+}
+
+.event{
+margin-left:40px;
+}
+
+.event:before{
+left:-33px;
+}
+
+}
+
+@media print{
+
+.controls,
+.month-buttons,
+.print{
+display:none;
+}
+
+body{
+background:white;
+}
+
+.event{
+box-shadow:none;
+border:1px solid #ccc;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+
+<img src="YOUR_CHCCI_LOGO_URL">
+
+<h1>CONCEPCION HOLY CROSS COLLEGE, INC.</h1>
+
+<h2>Academic Calendar AY 2026–2027</h2>
+
+<p>Academic Affairs Office • First Semester</p>
+
+</section>
+
+<section class="dashboard">
+
+<div class="card">
+<h3>32+</h3>
+<p>Activities</p>
+</div>
+
+<div class="card">
+<h3>3</h3>
+<p>Major Examinations</p>
+</div>
+
+<div class="card">
+<h3>5</h3>
+<p>Months Covered</p>
+</div>
+
+<div class="card">
+<h3>AY 2026-2027</h3>
+<p>Academic Year</p>
+</div>
+
+</section>
+
+<div class="controls">
+
+<input type="text" id="searchInput" placeholder="Search activities...">
+
+<select id="monthFilter">
+<option value="">All Months</option>
+<option>June</option>
+<option>July</option>
+<option>August</option>
+<option>September</option>
+<option>October</option>
+</select>
+
+</div>
+
+<div class="month-buttons">
+<button onclick="setMonth('')">All</button>
+<button onclick="setMonth('June')">June</button>
+<button onclick="setMonth('July')">July</button>
+<button onclick="setMonth('August')">August</button>
+<button onclick="setMonth('September')">September</button>
+<button onclick="setMonth('October')">October</button>
+</div>
+
+<button class="print" onclick="window.print()">🖨 Print Calendar</button>
+
+<div class="timeline" id="timeline">
+
+<div class="event academic" data-month="June">
+<div class="date">June 3</div>
+<div class="title">General Faculty Meeting</div>
+<span class="badge">Academic</span>
+</div>
+
+<div class="event academic" data-month="June">
+<div class="date">June 4-5</div>
+<div class="title">INSET</div>
+<span class="badge">Academic</span>
+</div>
+
+<div class="event celebration" data-month="June">
+<div class="date">June 8-11</div>
+<div class="title">UMPISA Welcoming Activity, Adding & Dropping, Submission of Syllabus</div>
+<span class="badge">Student Activity</span>
+</div>
+
+<div class="event celebration" data-month="June">
+<div class="date">June 12</div>
+<div class="title">Independence Day</div>
+<span class="badge">Holiday</span>
+</div>
+
+<div class="event academic" data-month="June">
+<div class="date">June 15</div>
+<div class="title">Start of Regular Classes</div>
+<span class="badge">Major Event</span>
+</div>
+
+<div class="event exam" data-month="July">
+<div class="date">July 22-25</div>
+<div class="title">Preliminary Examination</div>
+<span class="badge">Exam</span>
+</div>
+
+<div class="event awareness" data-month="July">
+<div class="date">July 31</div>
+<div class="title">RA 10121 Philippine Disaster Risk Reduction and Management of 2010</div>
+<span class="badge">Awareness</span>
+</div>
+
+<div class="event exam" data-month="September">
+<div class="date">September 2-5</div>
+<div class="title">Midterm Examination</div>
+<span class="badge">Exam</span>
+</div>
+
+<div class="event religious" data-month="September">
+<div class="date">September 14</div>
+<div class="title">Foundation Day – Feast of the Exaltation of the Holy Cross</div>
+<span class="badge">Religious</span>
+</div>
+
+<div class="event celebration" data-month="September">
+<div class="date">September 28</div>
+<div class="title">Intramurals 2026</div>
+<span class="badge">Major Event</span>
+</div>
+
+<div class="event celebration" data-month="October">
+<div class="date">October 8</div>
+<div class="title">Teacher's Day Celebration</div>
+<span class="badge">Celebration</span>
+</div>
+
+<div class="event awareness" data-month="October">
+<div class="date">October 9</div>
+<div class="title">RA 11036 Mental Health Act</div>
+<span class="badge">Awareness</span>
+</div>
+
+<div class="event exam" data-month="October">
+<div class="date">October 14-17</div>
+<div class="title">Final Examination</div>
+<span class="badge">Final Exam</span>
+</div>
+
+<div class="event academic" data-month="October">
+<div class="date">October 19-23</div>
+<div class="title">Student Signing of Clearance</div>
+<span class="badge">Academic</span>
+</div>
+
+<div class="event academic" data-month="October">
+<div class="date">October 30</div>
+<div class="title">Final Grades & IA (ED) • Faculty Clearance</div>
+<span class="badge">End of Semester</span>
+</div>
+
+</div>
+
+<footer>
+Concepcion Holy Cross College, Inc. © AY 2026–2027
+</footer>
+
+<script>
+
+const searchInput=document.getElementById('searchInput');
+const monthFilter=document.getElementById('monthFilter');
+
+function filterEvents(){
+
+const search=searchInput.value.toLowerCase();
+const month=monthFilter.value;
+
+document.querySelectorAll('.event').forEach(event=>{
+
+const text=event.innerText.toLowerCase();
+const eventMonth=event.dataset.month;
+
+event.style.display=
+(text.includes(search) &&
+(!month || eventMonth===month))
+?'block':'none';
+
+});
+
+}
+
+searchInput.addEventListener('keyup',filterEvents);
+monthFilter.addEventListener('change',filterEvents);
+
+function setMonth(month){
+monthFilter.value=month;
+filterEvents();
+}
+
+</script>
+
+</body>
+</html>
