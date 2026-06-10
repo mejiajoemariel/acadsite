@@ -1,118 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CHCCI Academic Calendar AY 2026–2027</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f0f4f8;
+      color: #1a1a2e;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: linear-gradient(135deg, #0d1b4b 60%, #1a3080);
+      color: white;
+      padding: 32px 40px;
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .logo-circle {
+      width: 90px; height: 90px;
+      border-radius: 50%;
+      background: white;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      font-weight: 900;
+      font-size: 10px;
+      color: #0d1b4b;
+      text-align: center;
+      border: 3px solid #f5a623;
+      padding: 8px;
+      line-height: 1.3;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      font-weight: 900;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    header h2 {
+      font-size: 1.3rem;
+      color: #f5a623;
+      font-weight: 700;
+      margin: 4px 0;
+    }
+
+    header p {
+      font-size: 0.85rem;
+      opacity: 0.75;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* ── STATS BAR ── */
+    .stats-bar {
+      display: flex;
+      gap: 16px;
+      padding: 24px 40px;
+      background: white;
+      border-bottom: 1px solid #e2e8f0;
+      flex-wrap: wrap;
+    }
+
+    .stat-card {
+      flex: 1;
+      min-width: 160px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 16px 20px;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      background: #fafbff;
+    }
+
+    .stat-icon { font-size: 1.8rem; }
+
+    .stat-card .num {
+      font-size: 1.7rem;
+      font-weight: 900;
+      color: #0d1b4b;
+      line-height: 1;
+    }
+
+    .stat-card .label {
+      font-size: 0.78rem;
+      color: #6b7280;
+      margin-top: 2px;
+    }
+
+    /* ── CONTROLS ── */
+    .controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 20px 40px;
+      background: white;
+      flex-wrap: wrap;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .search-box {
+      flex: 1;
+      min-width: 220px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      padding: 9px 14px;
+      background: #f9fafb;
+    }
+
+    .search-box input {
+      border: none;
+      background: transparent;
+      outline: none;
+      font-size: 0.9rem;
+      width: 100%;
+      color: #374151;
+    }
+
+    .search-box span { color: #9ca3af; }
+
+    .filter-select {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      padding: 9px 14px;
+      background: #f9fafb;
+      font-size: 0.9rem;
+      color: #374151;
+    }
+
+    .filter-select select {
+      border: none;
+      background: transparent;
+      outline: none;
+      font-size: 0.9rem;
+      color: #374151;
+      cursor: pointer;
+    }
+
+    .btn-print {
+      background: #0d1b4b;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.2s;
+    }
+
+    .btn-print:hover { background: #1a3080; }
+
+    /* ── MONTH FILTER PILLS ── */
+    .month-tabs {
+      display: flex;
+      gap: 8px;
+      padding: 16px 40px;
+      background: white;
+      border-bottom: 2px solid #e2e8f0;
+      flex-wrap: wrap;
+    }
+
+    .tab {
+      padding: 8px 20px;
+      border-radius: 999px;
+      border: 1px solid #d1d5db;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      background: white;
+      color: #374151;
+      transition: all 0.15s;
+    }
+
+    .tab.active, .tab:hover {
+      background: #0d1b4b;
+      color: white;
+      border-color: #0d1b4b;
+    }
+
+    /* ── CALENDAR BODY ── */
+    .calendar-body {
+      padding: 32px 40px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .month-section {
+      display: flex;
+      gap: 32px;
+      margin-bottom: 40px;
+    }
+
+    .month-label {
+      width: 90px;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 4px;
+      gap: 6px;
+    }
+
+    .month-label .m-icon { font-size: 2rem; }
+
+    .month-label .m-name {
+      font-size: 0.85rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: #0d1b4b;
+      letter-spacing: 1px;
+    }
+
+    .month-events {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border-left: 2px solid #cbd5e1;
+      padding-left: 20px;
+    }
+
+    .event-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 9px 0;
+      border-bottom: 1px dashed #e5e7eb;
+      position: relative;
+      transition: background 0.15s;
+    }
+
+    .event-row:last-child { border-bottom: none; }
+
+    .event-row::before {
+      content: '';
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: #0d1b4b;
+      position: absolute;
+      left: -26px;
+      flex-shrink: 0;
+    }
+
+    .event-date {
+      min-width: 110px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #0d1b4b;
+    }
+
+    .event-name {
+      flex: 1;
+      font-size: 0.88rem;
+      color: #1f2937;
+    }
+
+    /* ── BADGES ── */
+    .badge {
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .badge-Academic       { background: #bfdbfe; color: #1e40af; }
+    .badge-Holiday        { background: #fca5a5; color: #991b1b; }
+    .badge-Major-Event    { background: #6ee7b7; color: #065f46; }
+    .badge-Exam-Preparation { background: #f59e0b; color: #fff; }
+    .badge-Exam           { background: #ef4444; color: #fff; }
+    .badge-Final-Exam     { background: #dc2626; color: #fff; }
+    .badge-Religious      { background: #c084fc; color: #581c87; }
+    .badge-Awareness      { background: #fdba74; color: #7c2d12; }
+    .badge-Celebration    { background: #fde68a; color: #92400e; }
+    .badge-Student-Activity { background: #4ade80; color: #14532d; }
+    .badge-End-of-Semester { background: #1f2937; color: #f9fafb; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #0d1b4b;
+      color: white;
+      padding: 24px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .footer-left { display: flex; align-items: center; gap: 16px; }
+
+    .footer-logo {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: white;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px;
+      color: #0d1b4b;
+      font-weight: 900;
+      text-align: center;
+      line-height: 1.2;
+    }
+
+    .footer-left p { font-size: 0.82rem; opacity: 0.75; margin-top: 2px; }
+    .footer-left h3 { font-size: 0.95rem; font-weight: 700; }
+
+    .footer-right {
+      text-align: right;
+    }
+
+    .footer-right .motto {
+      font-family: Georgia, serif;
+      font-style: italic;
+      font-size: 1.3rem;
+      color: #f5a623;
+    }
+
+    .footer-right .copy {
+      font-size: 0.75rem;
+      opacity: 0.6;
+      margin-top: 4px;
+    }
+
+    /* ── HIDDEN (for filter) ── */
+    .month-section.hidden { display: none; }
+
+    /* ── PRINT ── */
+    @media print {
+      .controls, .month-tabs { display: none; }
+      body { background: white; }
+      .calendar-body { padding: 16px; }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      header { padding: 20px; flex-wrap: wrap; }
+      header h1 { font-size: 1.3rem; }
+      .stats-bar, .controls, .month-tabs, .calendar-body { padding: 16px; }
+      .month-section { flex-direction: column; gap: 8px; }
+      .month-label { flex-direction: row; width: 100%; }
+      .event-date { min-width: 80px; font-size: 0.78rem; }
+      .event-name { font-size: 0.8rem; }
+    }
+  </style>
+</head>
 <body>
 
-<!-- HERO HEADER -->
-<header class="hero">
-    <div class="hero-overlay">
-
-        <div class="hero-content">
-
-            <img src="chcci-logo.png" alt="CHCCI Logo" class="logo">
-
-            <div class="hero-text">
-                <h1>CONCEPCION HOLY CROSS COLLEGE, INC.</h1>
-                <h2>ACADEMIC CALENDAR AY 2026–2027</h2>
-                <p>ACADEMIC AFFAIRS OFFICE • FIRST SEMESTER</p>
-            </div>
-
-        </div>
-
-    </div>
+<!-- HEADER -->
+<header>
+  <div class="logo-circle">CHCCI<br>✝</div>
+  <div>
+    <h1>Concepcion Holy Cross College, Inc.</h1>
+    <h2>Academic Calendar AY 2026–2027</h2>
+    <p>Academic Affairs Office &bull; First Semester</p>
+  </div>
 </header>
 
-<!-- DASHBOARD -->
-<section class="dashboard">
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stat-card"><span class="stat-icon">📅</span><div><div class="num">39</div><div class="label">Activities</div></div></div>
+  <div class="stat-card"><span class="stat-icon">🎓</span><div><div class="num">3</div><div class="label">Major Examinations</div></div></div>
+  <div class="stat-card"><span class="stat-icon">🗓️</span><div><div class="num">5</div><div class="label">Months Covered</div></div></div>
+  <div class="stat-card"><span class="stat-icon">🏅</span><div><div class="num">AY 2026–2027</div><div class="label">Academic Year</div></div></div>
+</div>
 
-    <div class="card stat-card">
-        <div class="icon">📅</div>
-        <div>
-            <h3>39</h3>
-            <p>Activities</p>
-        </div>
-    </div>
-
-    <div class="card stat-card">
-        <div class="icon">🎓</div>
-        <div>
-            <h3>3</h3>
-            <p>Major Examinations</p>
-        </div>
-    </div>
-
-    <div class="card stat-card">
-        <div class="icon">🗓️</div>
-        <div>
-            <h3>5</h3>
-            <p>Months Covered</p>
-        </div>
-    </div>
-
-    <div class="card stat-card">
-        <div class="icon">🏅</div>
-        <div>
-            <h3>AY 2026-2027</h3>
-            <p>Academic Year</p>
-        </div>
-    </div>
-
-</section>
-
-<!-- FILTERS -->
-<section class="filter-panel">
-
-    <input type="text"
-           id="searchInput"
-           placeholder="Search activities...">
-
-    <select id="monthFilter">
-        <option value="">Filter by Month</option>
-        <option>June</option>
-        <option>July</option>
-        <option>August</option>
-        <option>September</option>
-        <option>October</option>
+<!-- CONTROLS -->
+<div class="controls">
+  <div class="search-box">
+    <span>🔍</span>
+    <input type="text" id="searchInput" placeholder="Search activities..." oninput="filterEvents()" />
+  </div>
+  <div class="filter-select">
+    <span>📅</span>
+    <select onchange="filterByMonth(this.value)">
+      <option value="all">Filter by Month</option>
+      <option value="june">June</option>
+      <option value="july">July</option>
+      <option value="august">August</option>
+      <option value="september">September</option>
+      <option value="october">October</option>
     </select>
-
-    <button onclick="window.print()" class="print-btn">
-        🖨 Print Calendar
-    </button>
-
-</section>
-
-<!-- MONTH PILLS -->
-<div class="month-buttons">
-
-    <button onclick="setMonth('')">All</button>
-    <button onclick="setMonth('June')">June</button>
-    <button onclick="setMonth('July')">July</button>
-    <button onclick="setMonth('August')">August</button>
-    <button onclick="setMonth('September')">September</button>
-    <button onclick="setMonth('October')">October</button>
-
+  </div>
+  <button class="btn-print" onclick="window.print()">🖨️ Print Calendar</button>
 </div>
 
-<!-- TIMELINE -->
-<div class="timeline" id="timeline">
-
-    <!-- Your updated event cards go here -->
-
+<!-- MONTH TABS -->
+<div class="month-tabs">
+  <button class="tab active" onclick="setTab(this,'all')">All</button>
+  <button class="tab" onclick="setTab(this,'june')">June</button>
+  <button class="tab" onclick="setTab(this,'july')">July</button>
+  <button class="tab" onclick="setTab(this,'august')">August</button>
+  <button class="tab" onclick="setTab(this,'september')">September</button>
+  <button class="tab" onclick="setTab(this,'october')">October</button>
 </div>
+
+<!-- CALENDAR -->
+<div class="calendar-body">
+
+  <!-- JUNE -->
+  <div class="month-section" data-month="june">
+    <div class="month-label">
+      <span class="m-icon">☀️</span>
+      <span class="m-name">June</span>
+    </div>
+    <div class="month-events">
+      <div class="event-row"><span class="event-date">June 3</span><span class="event-name">General Faculty Meeting</span><span class="badge badge-Academic">Academic</span></div>
+      <div class="event-row"><span class="event-date">June 4–5</span><span class="event-name">INSET</span><span class="badge badge-Academic">Academic</span></div>
+      <div class="event-row"><span class="event-date">June 8–11</span><span class="event-name">UMPISA Welcoming Activity</span><span class="badge badge-Student-Activity">Student Activity</span></div>
+      <div class="event-row"><span class="event-date">June 8–11</span><span class="event-name">Adding and Dropping of Subjects</span><span class="badge badge-Academic">Academic</span></div>
+      <div class="event-row"><span class="event-date">June 11</span><span class="event-name">Submission of Syllabus</span><span class="badge badge-Academic">Academic</span></div>
+      <div class="event-row"><span class="event-date">June 12</span><span class="event-name">Independence Day</span><span class="badge badge-Holiday">Holiday</span></div>
+      <div class="event-row"><span class="event-date">June 15</span><span class="event-name">Start of Regular Class</span><span class="badge badge-Major-Event">Major Event</span></div>
+      <div class="event-row"><span class="event-date">June 29</span><span class="event-name">Prelim Exam TQ and TOS (PC)</span><span class="badge badge-Exam-Preparation">Exam Preparation</span></div>
+    </div>
+  </div>
+
+  <!-- JULY -->
+  <div class="month-section" data-month="july">
+    <div class="month-label">
+      <span class="m-icon">🌤️</span>
+      <span class="m-name">July</span>
+    </div>
+    <div class="month-events">
+      <div class="event-row"><span class="event-date">July 2</span><span class="event-name">Prelim Exam TQ and TOS (ED)</span><span class="badge badge-Exam-Preparation">Exam Preparation</span></div>
+      <div class="event-row"><span class="event-date">July 3</span><span class="event-name">First Friday Mass – JHS SHS</span><span class="badge badge-Religious">Religious</span></div>
+      <div class="event-row"><span class="event-date">July 22–25</span><span class="event-name">Preliminary Examination</span><span class="badge badge-Exam">Exam</span></div>
+      <div class="event-row"><span class="event-date">July 31</span><span class="event-name">R.A. 10121 Philippine Disaster Risk Reduction and Management Act of 2010</span><span class="badge badge-Awareness">Awareness</span></div>
+    </div>
+  </div>
+
+  <!-- AUGUST -->
+  <div class="month-section" data-month="august">
+    <div class="month-label">
+      <span class="m-icon">⛅</span>
+      <span class="m-name">August</span>
+    </div>
+    <div class="month-events">
+      <div class="event-row"><span class="event-date">August 3</span><span class="event-name">Prelim Grades and IA (PC)</span><span class="badge badge-Academic">Academic</span></div>
+      <div class="event-row"><span class="event-date">August 6</span><span class="event-name">Prelim Grades and IA (ED)</span><span class="badge badge-Academic">Academic</span></div>
+      <div class="event-row"><span class="event-date">August 7</span><span class="event-name">First Friday Mass – OSAS and Student Leaders</span><span class="badge badge-Religious">Religious</span></div>
+      <div class="event-row"><span class="event-date">August 10</span><span class="event-name">Midterm Exam TQ and TOS (PC)</span><span class="badge badge-Exam-Preparation">Exam Preparation</span></div>
+      <div class="event-row"><span class="event-date">August 13</span><span class="event-name">Midterm Exam TQ and TOS (ED)</span><span class="badge badge-Exam-Preparation">Exam Preparation</span></div>
+      <div class="event-row"><span class="event-date">August 14</span><span class="event-name">R.A. 10175 Cybercrime Prevention Act</span><span class="badge badge-Awareness">Awareness</span></div>
+      <div class="event-row"><span class="event-date">August 14</span><span class="event-name">R.A. 10627 Anti-Bullying Act</span><span class="badge badge-Awareness">Awareness</span></div>
+      <div class="event-row"><span class="event-date">August 28</span><span class="event-name">Buwan ng Wika Celebration</span><span class="badge badge-Celebration">Celebration</span></div>
+    </div>
+  </div>
+
+  <!-- SEPTEMBER -->
+  <div class="month-section" data-month="september">
+    <div class="month-label">
+      <span class="m-icon">🍂</span>
+      <span class="m-name">September</span>
+    </div>
+    <div class="month-events">
+      <div class="event-row"><span class="event-date">September 2–5</span><span class="event-name">Midterm Examination</span><span class="badge badge-Exam">Exam</span></div>
+      <div class="event-row"><span class="event-date">September 14</span><span class="event-name">Midterm Grades and IA (PC)</span><span class="badge badge-Academic">Academic</span></div>
+      <div class="event-row"><span class="event-date">September 14</span><span class="event-name">Foundation Day – Feast of the Exaltation of the Holy Cross</span><span class="badge badge-Religious">Religious</span></div>
+      <div class="event-row"><span class="event-date">September 17</span><span class="event-name">Midterm Grades and IA (ED)</span><span class="badge badge-Academic">Academic</span></div>
+      <div class="event-row"><span class="event-date">September 17</span><span class="event-name">Exaltation of the Holy Cross</span><span class="badge badge-Religious">Religious</span></div>
+      <div class="event-row"><span class="event-date">September 21</span><span class="event-name">Final Exam TQ and TOS (PC)</span><span class="badge badge-Exam-Preparation">Exam Preparation</span></div>
+      <div class="event-row"><span class="event-date">September 24</span><span class="event-name">Final Exam TQ and TOS (ED)</span><span class="badge badge-Exam-Preparation">Exam Preparation</span></div>
+      <div class="event-row"><span class="event-date">September 28</span><span class="event-name">Intramurals 2026</span><span class="badge badge-Major-Event">Major Event</span></div>
+    </div>
+  </div>
+
+  <!-- OCTOBER -->
+  <div class="month-section" data-month="october">
+    <div class="month-label">
+      <span class="m-icon">🎃</span>
+      <span class="m-name">October</span>
+    </div>
+    <div class="month-events">
+      <div class="event-row"><span class="event-date">October 2</span><span class="event-name">First Friday Mass</span><span class="badge badge-Religious">Religious</span></div>
+      <div class="event-row"><span class="event-date">October 8</span><span class="event-name">Teacher's Day Celebration</span><span class="badge badge-Celebration">Celebration</span></div>
+      <div class="event-row"><span class="event-date">October 9</span><span class="event-name">R.A. 11036 Mental Health Act</span><span class="badge badge-Awareness">Awareness</span></div>
+      <div class="event-row"><span class="event-date">October 14–17</span><span class="event-name">Final Examination</span><span class="badge badge-Final-Exam">Final Exam</span></div>
+      <div class="event-row"><span class="event-date">October 19–23</span><span class="event-name">Student Signing of Clearance</span><span class="badge badge-Academic">Academic</span></div>
+      <div class="event-row"><span class="event-date">October 19–23</span><span class="event-name">R.A. 11053 Anti-Hazing Act</span><span class="badge badge-Awareness">Awareness</span></div>
+      <div class="event-row"><span class="event-date">October 19–23</span><span class="event-name">R.A. 9165 Dangerous Drugs Act</span><span class="badge badge-Awareness">Awareness</span></div>
+      <div class="event-row"><span class="event-date">October 19–23</span><span class="event-name">R.A. 9211 Tobacco Regulation Act of 2003</span><span class="badge badge-Awareness">Awareness</span></div>
+      <div class="event-row"><span class="event-date">October 26</span><span class="event-name">Final Grades and IA (PC)</span><span class="badge badge-Academic">Academic</span></div>
+      <div class="event-row"><span class="event-date">October 30</span><span class="event-name">Final Grades and IA (ED)</span><span class="badge badge-Academic">Academic</span></div>
+      <div class="event-row"><span class="event-date">October 30</span><span class="event-name">Faculty Clearance</span><span class="badge badge-End-of-Semester">End of Semester</span></div>
+    </div>
+  </div>
+
+</div><!-- end calendar-body -->
 
 <!-- FOOTER -->
 <footer>
-
-    <div class="footer-left">
-        <img src="chcci-logo.png" class="footer-logo">
-        <div>
-            <strong>CONCEPCION HOLY CROSS COLLEGE, INC.</strong><br>
-            Concepcion, Tarlac, Philippines
-        </div>
+  <div class="footer-left">
+    <div class="footer-logo">CHCCI<br>✝</div>
+    <div>
+      <h3>Concepcion Holy Cross College, Inc.</h3>
+      <p>Concepcion, Tarlac, Philippines</p>
     </div>
-
-    <div class="footer-right">
-        <h3>In Hoc Signo Vinces</h3>
-        <p>CHCCI © AY 2026–2027</p>
-    </div>
-
+  </div>
+  <div class="footer-right">
+    <div class="motto">In Hoc Signo Vinces</div>
+    <div class="copy">CHCCI © AY 2026–2027</div>
+  </div>
 </footer>
 
+<script>
+  function setTab(btn, month) {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    btn.classList.add('active');
+    filterByMonth(month);
+    // sync select
+    const sel = document.querySelector('.filter-select select');
+    sel.value = month === 'all' ? 'all' : month;
+  }
+
+  function filterByMonth(month) {
+    document.querySelectorAll('.month-section').forEach(sec => {
+      sec.classList.toggle('hidden', month !== 'all' && sec.dataset.month !== month);
+    });
+  }
+
+  function filterEvents() {
+    const q = document.getElementById('searchInput').value.toLowerCase();
+    document.querySelectorAll('.event-row').forEach(row => {
+      const text = row.textContent.toLowerCase();
+      row.style.display = text.includes(q) ? '' : 'none';
+    });
+    // show month sections that still have visible rows
+    document.querySelectorAll('.month-section').forEach(sec => {
+      const visible = [...sec.querySelectorAll('.event-row')].some(r => r.style.display !== 'none');
+      sec.classList.toggle('hidden', !visible);
+    });
+  }
+</script>
+
 </body>
+</html>
